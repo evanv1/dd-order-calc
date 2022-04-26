@@ -10,9 +10,11 @@ sub = input('Subtotal: ')
 if float(sub) < minsub:
     print('Subtotal too small. Add more items to cart.')   
     sub = input('Subtotal: ')
+    sys.exit
 elif float(sub) > cartlimit:
     print('Cart Price Limit hit. Please be below $26!')
     sub = input('Subtotal: ')
+    sys.exit
 
 fee = input('Fee: ')
 if float(fee) < one:
