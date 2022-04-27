@@ -5,7 +5,6 @@ import pyperclip as pc
 orderlimit = 31
 cartlimit = 26
 minsub = 15
-one = 1
 
 sub = float(input('Subtotal: '))
 if sub < minsub:
@@ -18,7 +17,7 @@ elif sub > cartlimit:
     sys.exit
 
 fee = float(input('Fee: '))
-if fee < one:
+if fee < 1:
     print('Please enter a fee!')
     sub = input('Fee: ')
     
