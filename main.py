@@ -1,5 +1,5 @@
 #doordash order calculator
-import json
+import csv
 import sys
 import pyperclip as pc
 
@@ -9,8 +9,7 @@ orderlimit = 31
 cartlimit = 26
 minsub = 15
 one = 1
-r = open('./paymentinfo.json')
-payment_info = ['$412preme', '@evanpreme', 'evannbusiness@gmail.com']
+handles = open('payments.csv')
 
 while True:
     print('Welcome to evans DD calc.')
@@ -47,16 +46,22 @@ while True:
             round(difference, 2)
             print(f'Total price: {ordertotal}')
             print(f'Your payment owed is {round(discount, 2)}, and you saved {round(difference, 2)} on this order.')
+            pc.copy(round(ordertotal, 2))
 
     elif int(selection) == 2:
+        handles = open('payments.csv')
+        read_data = csv.reader(handles) #string asks if "read_data" can read "handles" in comma separated values
+        data = list(read_data) # all data is in csv
+        cashapp = data[0]
+        venmo = data[1]
+        zelle = data[2]
 
         print(f'''
-    Cashapp: {payment_info[0]}
-    Venmo: {payment_info[1]}
-    Zelle: {payment_info[2]}
+Cashapp: {cashapp[1]}
+Venmo: {venmo[1]}
+Zelle: {zelle[1]}
 
         ''')
-        pc.copy(round(ordertotal, 2))
 
 
     elif int(selection) == 3:
