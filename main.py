@@ -5,8 +5,8 @@ import pyperclip as pc
 
 from soupsieve import select
 
-orderlimit = 31
-cartlimit = 26
+orderlimit = 33
+cartlimit = 27
 minsub = 15
 one = 1
 handles = open('payments.csv')
@@ -17,7 +17,7 @@ while True:
 1. Calculate Fees
 2. Payment Info
 3. Quit App
-    '''))
+'''))
 
     if int(selection) == 1:
         sub = input('Subtotal: ')
@@ -50,8 +50,8 @@ while True:
 
     elif int(selection) == 2:
         handles = open('payments.csv')
-        read_data = csv.reader(handles) #string asks if "read_data" can read "handles" in comma separated values
-        data = list(read_data) # all data is in csv
+        read_data = csv.reader(handles) #reads info in payments folder (reads in csv because it is a csv)
+        data = list(read_data) # all data is in made into a list so python can read
         cashapp = data[0]
         venmo = data[1]
         zelle = data[2]
